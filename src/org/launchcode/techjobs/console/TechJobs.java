@@ -116,12 +116,12 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        if (someJobs.isEmpty()){ //method checks if hashmap is empty
+        if (someJobs.isEmpty()){ //method checks if hashmap is empty (Stackoverflow)
             System.out.println("No information found for this search term");
 
         }
 
-        for (HashMap<String, String> job : someJobs){ //for each job in the list of arrays
+        for (HashMap<String, String> job : someJobs){ //for each job in the list of arrays //
             System.out.print("*****\n");
             for (Map.Entry<String, String> jobColumn: job.entrySet()) { //for each entry within each job
                 System.out.println((jobColumn.getKey() + ": " + jobColumn.getValue()));

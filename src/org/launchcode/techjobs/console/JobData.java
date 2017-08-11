@@ -77,7 +77,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -90,14 +90,13 @@ public class JobData {
 
         loadData();
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();  //Creates the array List of hashmaps that will be displayed (before formating)
 
         for (HashMap<String, String> row : allJobs) { //creates hashmap "row" as it itterates through global allJobs
             ArrayList<String> keys = new ArrayList<>(row.keySet()); //creates arrayList of String "keys" for each hashmap. Takes the keys from row and passes it in to the new array
             for(String column: keys){ //creates string "column" for each key string
                 String aValue = row.get(column); //gets the column of each row in allJobs and puts it aValue
                                                 // for each position in "keys",
-
                 if (aValue.toLowerCase().contains(value.toLowerCase())) { //checks if aValue contains the search term thats passed trhough to the class
                     jobs.add(row); //adds the row to the jobs arraylist of hashmaps
             }
