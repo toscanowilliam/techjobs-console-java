@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
 
+import static org.launchcode.techjobs.console.JobData.findByValue;
+
 /**
  * Created by LaunchCode
  */
@@ -62,7 +64,8 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
+                    printJobs(JobData.findByValue(searchTerm));
+
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -118,7 +121,7 @@ public class TechJobs {
 
         }
 
-        for (HashMap<String, String> job : someJobs){ //for each job in the array
+        for (HashMap<String, String> job : someJobs){ //for each job in the list of arrays
             System.out.print("*****\n");
             for (Map.Entry<String, String> jobColumn: job.entrySet()) { //for each entry within each job
                 System.out.println((jobColumn.getKey() + ": " + jobColumn.getValue()));
